@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.bpk.filescanner.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/llbuttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button_pause"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/button_pause"
+                    android:weightSum="1" />
+
+                <Button
+                    android:id="@+id/button_start"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/button_start"
+                    android:weightSum="1" />
+
+                <Button
+                    android:id="@+id/button_share"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/button_share"
+                    android:weightSum="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llheaders"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/llbuttons"
+
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="@string/file_data"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="@string/ext_data"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rldata"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llheaders">
+
+                <View
+                    android:id="@+id/separator"
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true" />
+
+                <fragment
+                    android:id="@+id/fragment_file_data"
+                    android:name="com.bpk.filescanner.fragment.FileDataFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:layout_toLeftOf="@+id/separator"
+                    tools:layout="@layout/fragment_file_data" />
+
+                <fragment
+                    android:id="@+id/fragment_ext_data"
+                    android:name="com.bpk.filescanner.fragment.ExtDataFragment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:layout_toRightOf="@+id/separator"
+                    tools:layout="@layout/fragment_file_data" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rldata"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/avg_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/scrollView"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:id="@+id/perc_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/avg_view"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
